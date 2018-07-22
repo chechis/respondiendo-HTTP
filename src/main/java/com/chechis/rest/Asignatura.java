@@ -23,7 +23,7 @@ import javax.ws.rs.core.MediaType;
  * @author chechis
  */
 
-@Path("hola")
+@Path("asignatura")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class Asignatura {

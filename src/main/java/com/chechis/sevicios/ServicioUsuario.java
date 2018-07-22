@@ -29,27 +29,27 @@ public class ServicioUsuario {
         usuarios.add(new ModeloUsuario (1, "Dilma", "123456", "profesor" ));
     }
     
-    public List<ModeloUsuario> getAsignaturas (){
+    public List<ModeloUsuario> getUsuarios (){
         return usuarios;
     }
     
-    public ModeloUsuario getAsignatura(int id) {
+    public ModeloUsuario getUsuario(int id) {
         return usuarios.get(id - 1);
     }
     
-    public ModeloUsuario addAsignatura(ModeloUsuario profesor) {
+    public ModeloUsuario addUsuario(ModeloUsuario profesor) {
         profesor.setId(usuarios.size() + 1);
         usuarios.add(profesor);
         return profesor;
     }
     
-    public ModeloUsuario updateAsignatura(int id, ModeloUsuario profesor) {
+    public ModeloUsuario updateUsuario(int id, ModeloUsuario profesor) {
         profesor.setId(id);
         usuarios.set(id - 1, profesor);
         return profesor;
     }
     
-    public ModeloUsuario deleteAsignatura(int id) {
+    public ModeloUsuario deleteUsuario(int id) {
         return usuarios.remove(id - 1);
     }
     

@@ -28,27 +28,27 @@ public class ServicioTarea {
         tareas.add(new ModeloTarea (1, "Investigar", "70" ));
     }
     
-    public List<ModeloTarea> getAsignaturas (){
+    public List<ModeloTarea> getTareas (){
         return tareas;
     }
     
-    public ModeloTarea getAsignatura(int id) {
+    public ModeloTarea getTarea(int id) {
         return tareas.get(id - 1);
     }
     
-    public ModeloTarea addAsignatura(ModeloTarea tarea) {
+    public ModeloTarea addTarea(ModeloTarea tarea) {
         tarea.setId(tareas.size() + 1);
         tareas.add(tarea);
         return tarea;
     }
     
-    public ModeloTarea updateAsignatura(int id, ModeloTarea tarea) {
+    public ModeloTarea updateTarea(int id, ModeloTarea tarea) {
         tarea.setId(id);
         tareas.set(id - 1, tarea);
         return tarea;
     }
     
-    public ModeloTarea deleteAsignatura(int id) {
+    public ModeloTarea deleteTarea(int id) {
         return tareas.remove(id - 1);
     }
     

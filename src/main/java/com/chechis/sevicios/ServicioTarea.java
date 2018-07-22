@@ -25,7 +25,12 @@ public class ServicioTarea {
     
     private ServicioTarea() {
         tareas = new ArrayList<>();
-        tareas.add(new ModeloTarea (1, "Investigar", "70" ));
+        tareas.add(new ModeloTarea (1, "Investigar", "80" ));
+        tareas.add(new ModeloTarea (2, "Resolver matrices", "83" ));
+        tareas.add(new ModeloTarea (3, "Predimensionar", "70" ));
+        tareas.add(new ModeloTarea (4, "Deducir doble integral", "90" ));
+        tareas.add(new ModeloTarea (5, "Coordenadas Polares", "75" ));
+        tareas.add(new ModeloTarea (6, "Coordenadas Parametricas", "67" ));
     }
     
     public List<ModeloTarea> getTareas (){

@@ -25,7 +25,10 @@ public class ServicioAsignatura {
     
     private ServicioAsignatura() {
         asignaturas = new ArrayList<>();
-        asignaturas.add(new ModeloAsignatura (1, "Costos"));
+        asignaturas.add(new ModeloAsignatura (1, "Puentes"));
+        asignaturas.add(new ModeloAsignatura (2, "Costos, presupuestos y avaluos"));
+        asignaturas.add(new ModeloAsignatura (3, "Estructuras de concreto"));
+        asignaturas.add(new ModeloAsignatura (4, "Analisis estructural"));
     }
     
     

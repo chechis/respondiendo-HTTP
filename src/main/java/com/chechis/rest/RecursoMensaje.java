@@ -18,7 +18,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Next University
  */
-@Path("mensajes")
+@Path("mensajess")
 public class RecursoMensaje {
     
     @GET

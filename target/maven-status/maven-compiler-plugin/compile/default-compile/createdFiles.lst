@@ -1,1 +1,10 @@
+com/chechis/rest/Profesor.class
 com/chechis/rest/RecursoMensaje.class
+com/chechis/sevicios/ServicioUsuario.class
+com/chechis/sevicios/ServicioAsignatura.class
+com/chechis/model/ModeloUsuario.class
+com/chechis/rest/Asignatura.class
+com/chechis/model/ModeloTarea.class
+com/chechis/sevicios/ServicioTarea.class
+com/chechis/model/ModeloAsignatura.class
+com/chechis/rest/Estudiante.class

@@ -31,8 +31,6 @@ public class ServicioAsignatura {
         asignaturas.add(new ModeloAsignatura (4, "Analisis estructural"));
     }
     
-    
-    
     public List<ModeloAsignatura> getAsignaturas (){
         return asignaturas;
     }

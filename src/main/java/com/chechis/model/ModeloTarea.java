@@ -5,6 +5,7 @@
  */
 package com.chechis.model;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -26,7 +27,8 @@ public class ModeloTarea {
         this.tarea = tarea;
         this.nota = nota;
     }
-
+    
+    @XmlElement
     public int getId() {
         return id;
     }
@@ -35,6 +37,7 @@ public class ModeloTarea {
         this.id = id;
     }
 
+    @XmlElement
     public String getTarea() {
         return tarea;
     }
@@ -42,7 +45,8 @@ public class ModeloTarea {
     public void setTarea(String tarea) {
         this.tarea = tarea;
     }
-
+    
+    @XmlElement
     public String getNota() {
         return nota;
     }

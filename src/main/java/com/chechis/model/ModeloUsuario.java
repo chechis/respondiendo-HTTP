@@ -5,6 +5,7 @@
  */
 package com.chechis.model;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -29,6 +30,7 @@ public class ModeloUsuario {
         this.rol = rol;
     }
 
+    @XmlElement
     public int getId() {
         return id;
     }
@@ -37,6 +39,7 @@ public class ModeloUsuario {
         this.id = id;
     }
 
+    @XmlElement
     public String getNombre() {
         return nombre;
     }
@@ -45,6 +48,7 @@ public class ModeloUsuario {
         this.nombre = nombre;
     }
 
+    @XmlElement
     public String getContrasena() {
         return contrasena;
     }
@@ -53,6 +57,7 @@ public class ModeloUsuario {
         this.contrasena = contrasena;
     }
 
+    @XmlElement
     public String getRol() {
         return rol;
     }

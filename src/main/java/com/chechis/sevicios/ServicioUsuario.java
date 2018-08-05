@@ -26,9 +26,11 @@ public class ServicioUsuario {
     
     private ServicioUsuario() {
         usuarios = new ArrayList<>();
-        usuarios.add(new ModeloUsuario (1, "Dilma", "123456", "profesor" ));
-        usuarios.add(new ModeloUsuario (2, "Mariano", "12", "profesor" ));
-        usuarios.add(new ModeloUsuario (3, "Lucas", "150792", "profesor" ));
+        usuarios.add(new ModeloUsuario (1, "Dilma", "123456", "1" ));
+        usuarios.add(new ModeloUsuario (2, "Mariano", "12", "1" ));
+        usuarios.add(new ModeloUsuario (3, "Lucas", "150792", "1" ));
+        usuarios.add(new ModeloUsuario (4, "Gustavo", "rochen", "estudiante" ));
+        usuarios.add(new ModeloUsuario (5, "Adalberto", "69", "estudiante" ));
         
     }
     

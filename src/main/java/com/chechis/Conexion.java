@@ -20,8 +20,8 @@ public class Conexion {
     private Connection con;
     private final String driver = "com.mysql.cj.jdbc.Driver";
     private final String usuario = "nextu";
-    private final String contrasena = "NextU!09";
-    private final String urlBaseDatos = "jdbc:mysql://localhost:3306/nextu?serverTimezone=UTC";
+    private final String contrasena = "Mysql4125.5951";
+    private final String urlBaseDatos = "jdbc:mysql://localhost:3306/new_schema?serverTimezone=UTC";
     
     private static Conexion conexion;
     

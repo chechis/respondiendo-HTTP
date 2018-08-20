@@ -50,5 +50,12 @@ public class ModeloAsignatura {
     public void setAsignatura(String asignatura) {
         this.asignatura = asignatura;
     }
+
+    @Override
+    public String toString() {
+        return "ModeloAsignatura{" + "id=" + id + ", asignatura=" + asignatura + '}';
+    }
+    
+    
    
 }

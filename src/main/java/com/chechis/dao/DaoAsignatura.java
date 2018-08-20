@@ -31,8 +31,8 @@ public class DaoAsignatura implements IDAO<ModeloAsignatura> {
     
     @Override
     public void insertar(ModeloAsignatura entidad) throws SQLException {
-        //donde dice usuarios, es la tabla de workbench y nombre_usuario... son sus columnas
-        String query = "INSERT INTO usuarios (nombre_usuario) VALUES (?)";
+        
+        String query = "INSERT INTO asignaturas (nombre_asignatura) VALUES (?)";
         
         if(insertar == null){
            insertar = Conexion.getInstance().getCon().prepareStatement(query);
@@ -46,7 +46,7 @@ public class DaoAsignatura implements IDAO<ModeloAsignatura> {
     @Override
     public void eliminar(Integer id) throws SQLException {
         
-        String query = "DELETE FROM usuarios WHERE id = ?";
+        String query = "DELETE FROM asignaturas WHERE id = ?";
         
         if (eliminar == null){
             eliminar = Conexion.getInstance().getCon().prepareStatement(query);
@@ -58,7 +58,7 @@ public class DaoAsignatura implements IDAO<ModeloAsignatura> {
 
     @Override
     public List<ModeloAsignatura> listar() throws SQLException {
-        String query = "SELECT * FROM usuarios";
+        String query = "SELECT * FROM asignaturas";
         
         if (listar == null) {
             listar = Conexion.getInstance().getCon().prepareStatement(query);
@@ -77,7 +77,7 @@ public class DaoAsignatura implements IDAO<ModeloAsignatura> {
     @Override
     public ModeloAsignatura buscar(Integer id) throws SQLException {
         
-        String query = "SELECT * FROM usuarios WHERE id = ?";
+        String query = "SELECT * FROM asignaturas WHERE id = ?";
         
         if (buscar == null) {
             buscar = Conexion.getInstance().getCon().prepareStatement(query);
@@ -94,7 +94,7 @@ public class DaoAsignatura implements IDAO<ModeloAsignatura> {
     @Override
     public void actualizar(ModeloAsignatura entidad) throws SQLException {
         
-        String query = "UPDATE usuarios SET nombre_usuario=? WHERE id = ?";
+        String query = "UPDATE asignaturas SET nombre_asignatura=? WHERE id = ?";
         
         if (actualizar == null){
             actualizar = Conexion.getInstance().getCon().prepareStatement(query);
@@ -111,7 +111,7 @@ public class DaoAsignatura implements IDAO<ModeloAsignatura> {
         ModeloAsignatura usuario = new ModeloAsignatura();
         
         usuario.setId(set.getInt("id"));
-        usuario.setAsignatura(set.getString("nombre_usuario"));
+        usuario.setAsignatura(set.getString("nombre_asignatura"));
         
         return usuario;
     }

@@ -38,10 +38,10 @@ public class TestAsignatura {
 
 //            buscar recordar poner toString en el modelo
 
-//            System.out.println(dao.buscar(2));
+//            System.out.println(dao.buscar(4));
             
 //            listar, para verlo mejor se cambio el to string del modelo, mejor si hay varios usuarios 
-
+//
               System.out.println(dao.listar());
 
         }catch(SQLException ex){

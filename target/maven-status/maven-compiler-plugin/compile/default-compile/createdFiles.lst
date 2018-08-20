@@ -5,6 +5,8 @@ com\chechis\rest\Tarea.class
 com\chechis\sevicios\ServicioAsignatura.class
 com\chechis\rest\Profesor.class
 com\chechis\sevicios\ServicioUsuario.class
+com\chechis\IDAO.class
 com\chechis\model\ModeloTarea.class
 com\chechis\rest\Asignatura.class
+com\chechis\dao\DaoAsignatura.class
 com\chechis\sevicios\ServicioTarea.class

@@ -22,9 +22,14 @@ public class ModeloAsignatura {
 
     public ModeloAsignatura() {
     }
-    
+
     public ModeloAsignatura(int id, String asignatura) {
         this.id = id;
+        this.asignatura = asignatura;
+    }
+    
+    
+    public ModeloAsignatura(String asignatura) {
         this.asignatura = asignatura;
     }
     

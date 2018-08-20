@@ -24,7 +24,7 @@ public class TestConexion {
                    
         }catch (SQLException ex){
             
-           System.out.println("Se  no establecio conexion");
+           System.out.println("no se establecio conexion");
             Logger.getLogger(TestConexion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

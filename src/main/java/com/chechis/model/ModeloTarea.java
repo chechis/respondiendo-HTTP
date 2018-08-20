@@ -55,8 +55,4 @@ public class ModeloTarea {
         this.nota = nota;
     }
     
-    
-    
-    
-    
 }

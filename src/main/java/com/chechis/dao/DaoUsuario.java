@@ -26,6 +26,18 @@ public class DaoUsuario implements IDAO<ModeloUsuario> {
     private PreparedStatement actualizar;
     private PreparedStatement buscar;
     private PreparedStatement listar;
+    
+    private static DaoUsuario instancia;
+    
+    private DaoUsuario(){
+        
+    }
+    public static DaoUsuario getInstance (){
+        if(instancia == null){
+            instancia=new DaoUsuario();
+        }
+        return instancia;
+    }
 
     @Override
     public void insertar(ModeloUsuario entidad) throws SQLException {

@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class TestUsuario {
     
     public static void main (String [] args){
-        DaoUsuario dao = new DaoUsuario();
+        DaoUsuario dao = DaoUsuario.getInstance();
         
         try{
 //            dao.insertar(new ModeloUsuario("Julio", "123", "profesor"));

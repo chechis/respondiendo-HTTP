@@ -5,9 +5,13 @@
  */
 package com.chechis.rest;
 
+import com.chechis.dao.DaoAsignatura;
 import com.chechis.model.ModeloAsignatura;
 import com.chechis.sevicios.ServicioAsignatura;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -33,31 +37,65 @@ public class Asignatura {
     
     @GET
     public List<ModeloAsignatura> obtenerAsignaturas(){
-        return servicio.getAsignaturas();
+        
+        try{
+            return DaoAsignatura.getInstance().listar();
+        }catch (SQLException ex){
+            Logger.getLogger(Asignatura.class.getName()+
+                    "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
     }
     
     @GET
     @Path("{asignaturaId}")
     public ModeloAsignatura obtenerAsignatura(@PathParam("asignaturaId") int id){
-        return servicio.getAsignatura(id);
+     
+        try{
+            return DaoAsignatura.getInstance().buscar(id);
+        }catch (SQLException ex){
+            Logger.getLogger(Asignatura.class.getName()+
+                    "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
     }
     
     @POST
-    public ModeloAsignatura agregarNuevaAsignatura (ModeloAsignatura asignatura){
-        return servicio.addAsignatura(asignatura);
+    public void agregarNuevaAsignatura (ModeloAsignatura asignatura){
+        try{
+            DaoAsignatura.getInstance().insertar(asignatura);
+        }catch (SQLException ex){
+            Logger.getLogger(Asignatura.class.getName()+
+                    "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
     @PUT
     @Path("{asignaturaId}")
-    public ModeloAsignatura actualizarAsignatura (@PathParam("asignaturaId") int id, 
+    public void actualizarAsignatura (@PathParam("asignaturaId") int id, 
             ModeloAsignatura asignatura){
-        return servicio.updateAsignatura(id, asignatura);
+        
+        asignatura.setId(id);
+        try{
+            DaoAsignatura.getInstance().actualizar(asignatura);
+        }catch (SQLException ex){
+            Logger.getLogger(Asignatura.class.getName()+
+                    "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @DELETE
     @Path("{asignaturaId}")
-    public ModeloAsignatura borrarAsignatura (@PathParam("asignaturaId") int id){
-        return servicio.deleteAsignatura(id);
+    public void borrarAsignatura (@PathParam("asignaturaId") int id){
+        try{
+            DaoAsignatura.getInstance().eliminar(id);
+        }catch (SQLException ex){
+            Logger.getLogger(Asignatura.class.getName()+
+                    "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

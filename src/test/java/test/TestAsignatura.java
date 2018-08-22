@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class TestAsignatura {
     
     public static void main(String [] args){
-        DaoAsignatura dao = new DaoAsignatura();
+        DaoAsignatura dao = DaoAsignatura.getInstance();
         
         try{
 //            dao.insertar(new ModeloAsignatura("costos"));

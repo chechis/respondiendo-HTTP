@@ -5,9 +5,14 @@
  */
 package com.chechis.rest;
 
+import com.chechis.dao.DaoAsignatura;
+import com.chechis.dao.DaoUsuario;
 import com.chechis.model.ModeloUsuario;
 import com.chechis.sevicios.ServicioUsuario;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -31,31 +36,61 @@ public class Profesor {
     
     @GET
     public List<ModeloUsuario> obtenerProfesores(){
-        return servicio.getUsuarios();
+        try{
+            return DaoUsuario.getInstance().listar();
+        }catch (SQLException ex){
+            Logger.getLogger(Asignatura.class.getName()+
+                    "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
     }
     
     @GET
     @Path("{profesorId}")
     public ModeloUsuario obtenerProfesor(@PathParam("profesorId") int id){
-        return servicio.getUsuario(id);
+        try{
+            return DaoUsuario.getInstance().buscar(id);
+        }catch (SQLException ex){
+            Logger.getLogger(Asignatura.class.getName()+
+                    "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
     }
     
     @POST
-    public ModeloUsuario agregarNuevoProfesor (ModeloUsuario usuario){
-        return servicio.addUsuario(usuario);
+    public void agregarNuevoProfesor (ModeloUsuario usuario){
+        try{
+            DaoUsuario.getInstance().insertar(usuario);
+        }catch (SQLException ex){
+            Logger.getLogger(Asignatura.class.getName()+
+                    "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @PUT
     @Path("{profesorId}")
-    public ModeloUsuario actualizarProfesor (@PathParam("profesorId") int id, 
+    public void actualizarProfesor (@PathParam("profesorId") int id, 
             ModeloUsuario usuario){
-        return servicio.updateUsuario(id, usuario);
+        usuario.setId(id);
+        try{
+            DaoUsuario.getInstance().actualizar(usuario);
+        }catch (SQLException ex){
+            Logger.getLogger(Asignatura.class.getName()+
+                    "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @DELETE
     @Path("{profesorId}")
-    public ModeloUsuario borrarProfesor (@PathParam("profesorId") int id){
-        return servicio.deleteUsuario(id);
+    public void borrarProfesor (@PathParam("profesorId") int id){
+        try{
+            DaoUsuario.getInstance().eliminar(id);
+        }catch (SQLException ex){
+            Logger.getLogger(Asignatura.class.getName()+
+                    "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

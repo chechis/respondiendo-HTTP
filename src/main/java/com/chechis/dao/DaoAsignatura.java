@@ -27,6 +27,17 @@ public class DaoAsignatura implements IDAO<ModeloAsignatura> {
     private PreparedStatement buscar;
     private PreparedStatement listar;
     
+    private static DaoAsignatura instancia;
+    private DaoAsignatura (){
+        
+    }
+    public static DaoAsignatura getInstance (){
+        if(instancia == null){
+            instancia = new DaoAsignatura();
+        }
+        return instancia;
+              
+    }
     
     
     @Override

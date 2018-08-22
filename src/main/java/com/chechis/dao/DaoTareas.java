@@ -27,6 +27,18 @@ public class DaoTareas implements IDAO<ModeloTarea> {
     private PreparedStatement actualizar;
     private PreparedStatement buscar;
     private PreparedStatement listar;
+    
+    private static DaoTareas instancia;
+    private DaoTareas (){
+        
+    }
+    public static DaoTareas getInstance (){
+        if(instancia == null){
+            instancia = new DaoTareas();
+        }
+        return instancia;
+              
+    }
 
     @Override
     public void insertar(ModeloTarea entidad) throws SQLException {

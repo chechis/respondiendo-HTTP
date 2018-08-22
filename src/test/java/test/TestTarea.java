@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class TestTarea {
     
     public static void main(String [] args){
-        DaoTareas dao = new DaoTareas();
+        DaoTareas dao = DaoTareas.getInstance();
         
         try{
 //            dao.insertar(new ModeloTarea("leer", "68"));

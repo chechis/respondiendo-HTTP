@@ -5,9 +5,14 @@
  */
 package com.chechis.rest;
 
+
+import com.chechis.dao.DaoTareas;
 import com.chechis.model.ModeloTarea;
 import com.chechis.sevicios.ServicioTarea;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -31,31 +36,61 @@ public class Tarea {
     
     @GET
     public List<ModeloTarea> obtenerTareas(){
-        return servicio.getTareas();
+        try{
+            return DaoTareas.getInstance().listar();
+        }catch (SQLException ex){
+            Logger.getLogger(Asignatura.class.getName()+
+                    "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
     }
     
     @GET
     @Path("{tareaId}")
     public ModeloTarea obtenerTarea(@PathParam("tareaId") int id){
-        return servicio.getTarea(id);
+        try{
+            return DaoTareas.getInstance().buscar(id);
+        }catch (SQLException ex){
+            Logger.getLogger(Asignatura.class.getName()+
+                    "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
     }
     
     @POST
-    public ModeloTarea agregarNuevaTarea (ModeloTarea tarea){
-        return servicio.addTarea(tarea);
+    public void agregarNuevaTarea (ModeloTarea tarea){
+        try{
+            DaoTareas.getInstance().insertar(tarea);
+        }catch (SQLException ex){
+            Logger.getLogger(Asignatura.class.getName()+
+                    "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @PUT
     @Path("{tareaId}")
-    public ModeloTarea actualizarTarea (@PathParam("tareaId") int id, 
+    public void actualizarTarea (@PathParam("tareaId") int id, 
             ModeloTarea tarea){
-        return servicio.updateTarea(id, tarea);
+        tarea.setId(id);
+        try{
+            DaoTareas.getInstance().actualizar(tarea);
+        }catch (SQLException ex){
+            Logger.getLogger(Asignatura.class.getName()+
+                    "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @DELETE
     @Path("{tareaId}")
-    public ModeloTarea borrarTarea (@PathParam("tareaId") int id){
-        return servicio.deleteTarea(id);
+    public void borrarTarea (@PathParam("tareaId") int id){
+        try{
+            DaoTareas.getInstance().eliminar(id);
+        }catch (SQLException ex){
+            Logger.getLogger(Asignatura.class.getName()+
+                    "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

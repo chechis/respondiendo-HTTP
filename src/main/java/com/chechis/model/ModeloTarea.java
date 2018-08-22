@@ -27,6 +27,12 @@ public class ModeloTarea {
         this.tarea = tarea;
         this.nota = nota;
     }
+
+    public ModeloTarea(String tarea, String nota) {
+        this.tarea = tarea;
+        this.nota = nota;
+    }
+    
     
     @XmlElement
     public int getId() {
@@ -54,5 +60,12 @@ public class ModeloTarea {
     public void setNota(String nota) {
         this.nota = nota;
     }
+
+    @Override
+    public String toString() {
+        return "ModeloTarea{" + "id=" + id + ", tarea=" + tarea + ", nota=" + nota + '}';
+    }
+    
+    
     
 }

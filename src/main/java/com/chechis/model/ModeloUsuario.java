@@ -23,6 +23,13 @@ public class ModeloUsuario {
     public ModeloUsuario() {
     }
 
+    public ModeloUsuario(String nombre, String contrasena, String rol) {
+        this.nombre = nombre;
+        this.contrasena = contrasena;
+        this.rol = rol;
+    }
+    
+
     public ModeloUsuario(int id, String nombre, String contrasena, String rol) {
         this.id = id;
         this.nombre = nombre;
@@ -65,5 +72,12 @@ public class ModeloUsuario {
     public void setRol(String rol) {
         this.rol = rol;
     }
+
+    @Override
+    public String toString() {
+        return "ModeloUsuario{" + "id=" + id + ", nombre=" + nombre + ", contrasena=" + contrasena + ", rol=" + rol + '}';
+    }
+    
+    
             
 }

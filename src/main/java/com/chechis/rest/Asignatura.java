@@ -43,6 +43,7 @@ public class Asignatura {
         }catch (SQLException ex){
             Logger.getLogger(Asignatura.class.getName()+
                     "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+            servicio.getAsignaturas();
         }
         
         return null;

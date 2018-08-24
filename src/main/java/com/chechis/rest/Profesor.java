@@ -41,9 +41,9 @@ public class Profesor {
         }catch (SQLException ex){
             Logger.getLogger(Asignatura.class.getName()+
                     "Error al consultar la base de datos"+ex.getMessage()).log(Level.SEVERE, null, ex);
+            return servicio.getUsuarios();
         }
-        
-        return null;
+       
     }
     
     @GET
